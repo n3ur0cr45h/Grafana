@@ -1,7 +1,7 @@
 ----
 
 <div align="Center"> 
-<a href="https://github.com/n3urocr45h/aws/blob/main/aws.png"><img src="https://github.com/n3ur0cr45h/aws/blob/main/aws.png">
+<a href="https://github.com/n3urocr45h/Grafana/blob/main/Grafana.png"><img src="https://github.com/n3ur0cr45h/Grafana/blob/main/Grafana.png">
 </div> 
 
 ----
