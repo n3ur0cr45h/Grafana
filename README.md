@@ -4,6 +4,13 @@
 <a href="https://github.com/n3urocr45h/Grafana/blob/main/Grafana.jpg"><img src="https://github.com/n3ur0cr45h/Grafana/blob/main/Grafana.jpg">
 </div> 
 
+<div align="Right">
+<h6>
+<strong>Participação de Mercado</strong>
+<br><strong>Empresas</strong>: 20%
+</h6>  
+</div>
+
 ----
 
 <details>
