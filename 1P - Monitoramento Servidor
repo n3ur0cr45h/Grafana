@@ -1,1 +1,57 @@
 
+##### Grafana - Servidor 
+
+1. apt-get install -y apt-transport-https software-properties-common wget
+
+2. mkdir  -p /etc/apt/keyrings/
+
+3. echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+4. apt install grafana
+
+
+
+##### Prometheus - Servidor
+
+5. mkdir /Prometheus && cd /Prometheus
+
+6. wget https://github.com/prometheus/prometheus/releases/download/v3.2.0/prometheus-3.2.0.linux-amd64.tar.gz
+
+7. tar xvfz prometheus-3.2.0.linux-amd64.tar.gz
+
+8. cd prometheus-3.2.0.linux-amd64 && vi prometheus.yml 
+
+     global: 
+      scrape_interval: 2s
+      evaluation_interval 2s
+   
+     scrape_configs:
+      - job_name: "Host"
+   
+        static_configs:
+	     - targets: ["192.168.15.164:9100"] # Porta do Node Exporter no Host Remoto de Teste
+		 
+
+
+##### Node Exporter - Host
+
+9. mkdir /Node && cd /Node 
+
+10. wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+
+11. tar xvfz node_exporter-1.9.0.linux-amd64.tar.gz && cd node_exporter-1.9.0.linux-amd64 && ./node_exporter 
+
+
+
+##### Configuração Grafana e Queries do Prometheus 
+
+12. http://192.168.15.112:3000
+
+13. Acessar com admin / admin e trocar a senha do Grafana 
+
+14. Criar uma origem de dados no Grafana, usando o IP e Porta do Prometheus - que lerá o arquivo prometheus.yml 
+
+
+
+
+
