@@ -21,7 +21,7 @@
   
 |  ID  | Título                    | Descrição                                                                        | 
 | ---- | ------------------------- | ---------------------------------------------------------------------------------| 
-|  01  | Monitoramento Servidor | Monitorar com o Grafana e Prometheus, um Servidor usando o Node Exporter        |
+|  01  | Monitoramento Servidor    | Monitorar com o Grafana e Prometheus, um Servidor usando o Node Exporter         |
 |  02  |    |           |
 |  03  |    |           |
 |  04  |    |           |
