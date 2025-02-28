@@ -6,6 +6,13 @@
 
 <div align="Right">
 <h6>
+<strong>Documentação</strong>
+<br><strong>https://grafana.com/docs/grafana/latest/</strong>
+</h6>  
+</div>
+
+<div align="Right">
+<h6>
 <strong>Participação de Mercado</strong>
 <br><strong>Empresas</strong>: 20%
 </h6>  
