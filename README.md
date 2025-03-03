@@ -29,7 +29,7 @@
 |  ID  | Título                    | Descrição                                                                        | 
 | ---- | ------------------------- | ---------------------------------------------------------------------------------| 
 |  01  | Monitoramento Servidor    | Monitorar com o Grafana e Prometheus, um Servidor usando o Node Exporter         |
-|  02  | Configuração Loki e Alloy |             |
+|  02  | Coleta de Logs            | Configurar para Puxar os Logs do Alloy, e enviar para o Loki -> Grafana          |
 |  03  |    |           |
 |  04  |    |           |
 |  05  |    |           |
