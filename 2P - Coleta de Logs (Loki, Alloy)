@@ -1,0 +1,117 @@
+
+##### Servidor Loki 
+
+1. apt install loki 
+
+2. vi /etc/loki/config.yml
+
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+  log_level: debug
+  grpc_server_max_concurrent_streams: 1000
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /tmp/loki
+  storage:
+    filesystem:
+      chunks_directory: /tmp/loki/chunks
+      rules_directory: /tmp/loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+query_range:
+  results_cache:
+    cache:
+      embedded_cache:
+        enabled: true
+        max_size_mb: 100
+
+limits_config:
+  metric_aggregation_enabled: true
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+pattern_ingester:
+  enabled: true
+  metric_aggregation:
+    loki_address: localhost:3100
+
+ruler:
+  alertmanager_url: http://localhost:9093
+
+frontend:
+  encoding: protobuf
+
+
+##### Host que terá os dados coletados 
+
+3. apt install alloy 
+
+4. vi /etc/alloy/config.alloy
+
+local.file_match "local_files" {
+	path_targets = [{"__path__" = "/var/log/*.log"}]
+	sync_period = "5s"
+
+}
+
+loki.source.file "log_scrape" {
+	targets = local.file_match.local_files.targets
+	forward_to = [loki.process.filter_logs.receiver]
+	tail_from_end = true
+}
+
+loki.process "filter_logs" {
+  stage.drop{
+       source = ""
+       expression = ".*Connection Closed By Authenticating User Root"
+       drop_counter_reason = "noisy"
+    }
+ forward_to = [loki.write.grafana_loki.receiver]
+
+}
+
+loki.write "grafana_loki" {
+  endpoint {
+  url = "http://localhost:3100/loki/api/v1/push"
+ }
+}
+
+loki.relabel "journal" {
+	forward_to = []
+        rule {
+		source_labels = ["__journal__systemd_unit"]
+		target_label = "unit"
+ }
+}
+
+loki.source.journal "journal" {
+	forward_to = [loki.write.journal.receiver]
+	relabel_rules = loki.relabel.journal.rules
+}
+
+loki.write "journal" {
+	endpoint {
+	url ="http://localhost:3100/loki/api/v1/push"
+	}
+}
+
+5. systemctl restart alloy && systemctl status alloy 
+
+##### Servidor Grafana 
+
+6. Configurar para puxar os dados do Servidor Loki 
