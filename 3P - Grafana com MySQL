@@ -1,0 +1,22 @@
+
+##### Servidor MySQL
+
+1. apt install mysql-server 
+
+2. Depois de instalado, criar um usuário que tenha apenas as permissões de Select e também o banco, tabela...
+
+  2.1. create database Teste_Grafana; use Teste_Grafana;
+  2.2. create table usuarios (nome VARCHAR(20), seco CHAR(1), birth DATE); 
+  2.3. insert into usuarios values ('Marilia','f','1996-10-20');
+  2.4. create user 'grafanaReader'@'192.168.15.164' identified by 'senha';
+  2.5. grant select on Teste_Grafana.* to 'grafanaReader';
+
+##### Servidor Grafana
+
+3. Você pode testar a conectividade com o MySQL usando o 'telnet' ou instalando um cliente MySQL e rodar o comando abaixo: 
+
+  3.1. mysql -u grafanaReader  -h 192.168.15.164 -P 3306 Teste_Grafana -p 
+
+4. Logar no Grafana, e adicionar um novo "Data Source", e não colocar "http://" no "Host URL". Apenas o IP e a Porta: 192.168.15.164:3306
+
+5. Depois de adicionado, só verificar as queries e configurações no "Explore"
