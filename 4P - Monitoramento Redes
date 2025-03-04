@@ -1,0 +1,23 @@
+
+Obs.: 1. Esse projeto não muda muito do Projeto 1. Precisa ter o Node_Exporter pra puxar as métricas de rede. 
+      2. É melhor com mais hosts para visualizar o tráfego, aqui só usei um pra entender como funciona e testar algumas métricas 
+
+##### Servidor Node 
+
+1. ./node_exporter & # Para executar o node em segundo plano - precisa ir até o diretório onde armazenou a aplicação
+
+##### Servidor Prometheus 
+
+2. ./prometheus & # Para iniciar o prometheus em segundo plano 
+
+##### Grafana 
+
+3. Provavelmente a origem de dados já estava salva - do projeto 1 -, mas é só tentar a conexão com o servidor Prometheus na Porta 9090
+
+4. Colocar algumas métricas de rede: 
+
+  4.1. node_network_receive_errors_total 
+  4.2. node_network_transmit_errors_total
+  4.3. node_network_receive_bytes_total 
+  4.4. node_network_transmit_bytes_total 
+
