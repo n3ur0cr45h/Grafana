@@ -31,7 +31,7 @@
 |  01  | Monitoramento Servidor    | Monitorar com o Grafana e Prometheus, um Servidor usando o Node Exporter         |
 |  02  | Coleta de Logs            | Configurar para Puxar os Logs do Alloy, e enviar para o Loki -> Grafana          |
 |  03  | Monitoramento BD's        | Conectar o Grafana com o Servidor MySQL para puxar queries e configurações       |
-|  04  |    |           |
+|  04  | Monitoramento Rede        | Criar um Painel de Visualizações de Rede, para monitoramento                     |
 |  05  |    |           |
 |  06  |    |           |
 |  07  |    |           |
