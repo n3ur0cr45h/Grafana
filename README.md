@@ -33,7 +33,7 @@
 |  03  | Monitoramento BD's        | Conectar o Grafana com o Servidor MySQL para puxar queries e configurações       |
 |  04  | Monitoramento Rede        | Criar um Painel de Visualizações de Rede, para monitoramento                     |
 |  05  | Monitoramento Docker      | Puxar as Métricas do Docker com o Prometheus, e visualizar no Grafana            |
-|  06  |    |           |
+|  06  | Monitoramento Jenkins     | Puxar as Métricas do Jenkins, e exibi-las no Grafana                             |
 |  07  |    |           |
 |  08  |    |           |
 |  09  |    |           |
