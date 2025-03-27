@@ -1,0 +1,29 @@
+
+ # Como já deu pra perceber, tudo que vai para o Grafana, aqui nos projetos, é retirado do Prometheus. 
+
+ 1. Instalar o Jenkins através da documentação:
+
+   https://www.jenkins.io/doc/book/installing/linux/
+
+2. Depois de instalado, instalar o plugin do Prometheus, na tela de Plugins do Jenkins 
+
+3. Com o plugin instalado, ir em "Manage Jenkins" -> "System" e descer até achar "Prometheus"
+
+ 3.1. Mudar o path - no meu caso, coloquei "jenkins_metrics"
+
+ 3.2. Mudar o "Job Attribute Name" - No meu, ficou jenkins (Não alterei do padrão) 
+
+4.1. Agora, necessário inserir o Jenkins no prometheus.yml no servidor: 
+
+  4.2. vi /etc/prometheus/prometheus.yml
+
+       - job_name: jenkins
+         static_configs: 
+           - targets: ['192.168.15.164:8080']
+         metrics_path: '/jenkins_metrics'
+         scheme: 'http'
+
+5. Como padrão, só conferir no prometheus com a expressão "up" ou indo em "Targets". 
+
+6. Conectar o Grafana no Prometheus 
+ 
