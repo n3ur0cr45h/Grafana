@@ -1,0 +1,30 @@
+
+#parece pouca coisa, mas pra chegar aqui e ver que dá certo - ainda mais por ser simples -, demorou. Estava testando o cadvisor e o docker_exporter (ambos não funcionaram)
+
+1. Na máquina onde está o Docker, rodar os comandos abaixo: 
+
+  1.1. /etc/docker/daemon.json 
+
+      {
+         "metrics-addr": "192.168.15.164:9323"
+      }
+
+  1.2. vi /etc/prometheus/prometheus.yml 
+
+      - job_name: docker # Ou qualquer outro nome 
+        static_configs: 
+          - targets: ['192.168.15.164:9232']
+
+2. Depois disso, reiniciar os serviços: 
+
+ 2.1. systemctl restart prometheus docker.sevice docker.socket #Se o Prometheus estiver em outro servidor, reiniciá-lo por lá. 
+
+3. Validar com o comando curl, a conexão com as métricas: 
+
+ 3.1. curl 192.168.15.164:9323/metrics
+ 
+ 3.2. Você pode acessar o Prometheus/Targets também, ou rodar o "up" para pegar todos os endpoints ativos. 
+
+4. Depois disso, é só adicionar a fonte de dados no Grafana, usando o Prometheus como origem 
+
+
