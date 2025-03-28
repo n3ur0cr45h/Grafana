@@ -1,0 +1,28 @@
+
+
+
+1. Instalar o GitLab Runner - usando a documentação abaixo: 
+
+   https://docs.gitlab.com/runner/install/
+   
+2. Configurar o /etc/gitlab-runner/config.toml, inserindo a linha abaixo:
+
+   concurrent = 1
+   check_interval = 0
+   shutdown_timout = 0
+   listen_address = "192.168.15.164:9353" # Pode alterar a Porta ou o IP 
+   
+3. Reiniciar o serviço do gitlab-runner e em seguida testar o acesso às métricas: 
+
+   curl 192.168.15.164:9323/metrics
+   
+4. Se tiver tudo certo, só adicionar no Prometheus: 
+
+   - job_name: 'gitlab-runner'
+     static_configs:
+	   - targets: ['192.168.15.164:9323']
+	   
+5. Reiniciar o prometheus, e ver em "Targets" (No painel do Prometheus), se já consta o Runner 
+
+6. Adicionar a fonte de Dados no Grafana, e configurar conforme 
+  
