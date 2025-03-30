@@ -1,0 +1,29 @@
+
+
+1. Instalação do RabbitMQ e demais pacotes necessários: 
+
+   https://www.rabbitmq.com/docs/install-debian#apt-cloudsmith
+   
+2. Depois de instalador, verificar se o RabbitMQ está ativo: 
+
+   systemctl status rabbitmq-server.service 
+   
+3. Instalar o Plugin do Prometheus para o Rabbitmq: 
+
+   https://www.rabbitmq.com/docs/prometheus 
+   
+4. Depois do Plugin ativado, testar a conexão: 
+
+   curl http://192.168.15.164:15692/metrics   
+   
+5. Configurar o arquivo /etc/prometheus/prometheus.yml
+
+   - job_name: 'rabbitmq'
+     static_configs: 
+	   - targets: ['192.168.16.164:15692']
+	   
+6. Restartar o prometheus.service 
+
+7. Verificar em "Targets" se consta o RabbitMQ 
+
+8. Puxar as Métricar no Grafana
