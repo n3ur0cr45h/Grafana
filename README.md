@@ -6,8 +6,7 @@
 
 <div align="Right">
 <h6>
-<strong>Documentação</strong>
-<br><strong>https://grafana.com/docs/grafana/latest/</strong>
+<br><strong><a href="https://grafana.com/docs/grafana/latest/">Documentação</a></strong>
 </h6>  
 </div>
 
