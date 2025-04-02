@@ -35,8 +35,7 @@
 |  06  | Métricas Jenkins          | Puxar as Métricas do Jenkins, e exibi-las no Grafana                             |
 |  07  | Métricas GitLab           | Instalar o GitLab Runner e configurá-lo para visualização no Grafana             |
 |  08  | Métricas RabbitMQ         | Configurar o RabbitMQ para expor as métricas, e visualizar no Grafana            |
-|  09  |    |           |
-|  10  |    |           |
+
 
 
 </div> 
