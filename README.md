@@ -13,11 +13,12 @@
 </div>
 
 ----
-
+  
 <details>
   <summary><b> 1. Fundamentos</b></summary>
-<div align="Left"> 
-
+<div align="Left">  
+<br>  
+    
   G1.1 - O que é o Grafana?  
   > - Grafana é uma plataforma de observabilidade e visualização de Dados;  
   > - Permite:  
