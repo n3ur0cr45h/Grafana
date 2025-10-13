@@ -53,6 +53,12 @@
   >        - Kafka Exporter;
   >        - NGINX Exporter.  
 
+  G1.4 - Conceito de Métricas e Séries Temporais   
+  >  - "Métricas" são valores quantitativas, que representam o desempenho, ou, estado de um sistema;
+  >  - Os valores são coletados ao longo do tempo, e podem ser:
+  >    - Uso de CPU, RAM, Latência, Usuários Ativos...
+  >  - Já "Série Temporal" é uma sequência de dados organizados por ordem cronológica.   
+
 </div> 
 </details>
 
