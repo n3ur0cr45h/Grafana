@@ -27,38 +27,18 @@
   >   - Configuração de alertas e notificações em canais (Microsoft Teams, e-mail, etc...);    
   >   - Suporte a métricas, logs e traces / rastreios.
   
-  G1.2 - O que é a stack "LGTM" / Stack do Grafana?  
-  >  - Pelo Grafana Labs, o conjunto oficial de ferramentas usadas recomendado pelo Grafana se chama "LGTM":
-  >    - Loki: Sistema de logs;  
-  >    - Grafana: Visualização e dashboards;  
-  >    - Tempo: Rastreamento Distribuído - Compatível com OpenTelemetry;  
-  >    - Mimir: Armazenamento escalável de métricas Prometheus.   
-  >      - Adições:
-  >        - Prometheus: Coleta de métricas PromQL;
-  >        - Alloy: Coleta métricas, logs e traces, e envia ao Loki, Mimir ou Tempo;
-  >        - Grafana Cloud: Versão SaaS da Stack, sem precisar gerenciar a Infra.
+  G1.2 - Componentes da Arquitetura Básica do Grafana
+  >  - Os principais componenetes de uma arquitetura básica do Grafana, são:
+  >    - Data Sources: Fontes de Dados de onde o Grafana busca os dados para exibição;
+  >    - Dashboards: Painéis personalizados com gráficos, tabelas, gauges, heatmaps, etc;
+  >    - Alerting: Sistema de alertas baseado em condições configuradas; 
+  >    - Users & Permissions: Controle de acesso; 
+  >    - Plugins: Para novas fontes de dados, visualizações personalizadas, painéis prontos da comunidade.
+  >
+  >  - Resumidamente: Fontes de Dados -> Servidor Grafana -> Dashboards + Alerting + API
 
-  G1.3 - Exporters  
-  >  - Os "exportadores" expõem as métricas para serem coletadas pelo Alloy ou Prometheus;  
-  >  - Exportadores comuns:  
-  >    - kube-state-metrics: Objetos do Kubernetes; 
-  >    - cAdvisor: Métricas de Contêineres; 
-  >    - Node Exporter: Métricas do Sistema Operacional; 
-  >    - Kubelet / Metrics-server: Métricas básicas dos Pods / Nós.
-  >      - Exportadores de Infra e Serviços:
-  >        - Blackbox Exporter: Teste de Endpoints;
-  >        - MySQL Exporter: Métricas do Banco MySQL / MariaDB;
-  >        - Postgre Exporter;
-  >        - Redis Exporter;
-  >        - Kafka Exporter;
-  >        - NGINX Exporter.  
-
-  G1.4 - Conceito de Métricas e Séries Temporais   
-  >  - "Métricas" são valores quantitativas, que representam o desempenho, ou, estado de um sistema;
-  >  - Os valores são coletados ao longo do tempo, e podem ser:
-  >    - Uso de CPU, RAM, Latência, Usuários Ativos...
-  >  - Já "Série Temporal" é uma sequência de dados organizados por ordem cronológica.   
-
+ G1.3 - Grafana Open Source, Enterprise e Cloud 
+  > 
 </div> 
 </details>
 
