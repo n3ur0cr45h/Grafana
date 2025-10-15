@@ -43,6 +43,20 @@
   > | Open Source | Gratuito, Recursos Básicos de Visualização e Alertas      |
   > | Enterprise  | Suporte Oficial, Recursos de Segurança Avançada, Auditoria, Gestão empresarial de Usuários, Integrações Premium |
   > | Cloud       | SaaS, Hospedagem de Dashes, Coleta e Armazenamento de Métricas, Logs e Traces, Inclui Stack Completa            |
+
+ G1.4 - Stack LGTM: Loki, Grafana, Tempo, Mimir 
+  > - Conjunto de Ferramentas Open Source criadas e mantidas pela Grafana Labs;
+  > - Voltadas para Observabilidade Completa - Logs, Métricas e Rastreios.
+  >    
+  > | Ferramenta  | Função                                                         |
+  > |-------------|----------------------------------------------------------------|
+  > | Loki        | Armazenamento e Consulta de Logs                               |
+  > | Grafana     | Interface central para visualizar métricas, logs e raastreios  | 
+  > | Tempo       | Armazena e consulta rastreios distribuídos                     |
+  > | Mimir       | Backend escalável para métricas (Pode substituir o Prometheus) |
+  >
+  > - LGTM é uma stack de observabilidade moderna, com foco em leveza, performance e integração fácil;
+  > - Normalmente usada junto de microsserviços, Kubernetes, etc.    
 </div> 
 </details>
 
