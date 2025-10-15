@@ -38,7 +38,11 @@
   >  - Resumidamente: Fontes de Dados -> Servidor Grafana -> Dashboards + Alerting + API
 
  G1.3 - Grafana Open Source, Enterprise e Cloud 
-  > 
+  > | Tipo        | Recursos                                                  |
+  > |-------------|-----------------------------------------------------------|
+  > | Open Source | Gratuito, Recursos Básicos de Visualização e Alertas      |
+  > | Enterprise  | Suporte Oficial, Recursos de Segurança Avançada, Auditoria, Gestão empresarial de Usuários, Integrações Premium |
+  > | Cloud       | SaaS, Hospedagem de Dashes, Coleta e Armazenamento de Métricas, Logs e Traces, Inclui Stack Completa            |
 </div> 
 </details>
 
