@@ -56,7 +56,49 @@
   > | Mimir       | Backend escalável para métricas (Pode substituir o Prometheus) |
   >
   > - LGTM é uma stack de observabilidade moderna, com foco em leveza, performance e integração fácil;
-  > - Normalmente usada junto de microsserviços, Kubernetes, etc.    
+  > - Normalmente usada junto de microsserviços, Kubernetes, etc.
+
+ G1.5 - Métricas e Séries Temporais 
+  > - Métricas são valores números que representam o comportamento ou estado de um sistema ao longo do tempo;
+  > - As métricas são usadas para monitorar, visualizar e alertar sobre a saúde e o desempenho de sistemas.  
+  > - Exemplo de Métricas:
+  >   - Uso de CPU de um Servidor;
+  >   - Quantidade de Requisições HTTP por Segundo;
+  >   - Tempo de resposta de uma API;
+  >   - Número de erros registrados.
+  >  
+  > - Séries Temporais são sequências de dados onde cada ponto é um par (timestamp, valor);
+  > - Para cada métrica, temos uma série de valores medidos ao longo do tempo.
+
+G1.6 - Conceitos Básicos: Labels, Jobs, Targets
+  > - "Labels" são pares "chave-valor", que descrevem a origem ou contexto de uma métrica:
+  >   - Exemplo: http_requests_total{method="GET", status="200", job="api-server"}
+  > - "Job" é um labem usado para identificar qual serviço ou componente está sendo monitorado:
+  >   - Exemplo: job="database"
+  > - "Target" é uma instância específica de onde as métricas estão sendo coletadas;
+  > - Pode ser um host ou endpoint
+  > - Cada job pode ter vários targets.
+
+G1.7 - Exporters 
+  > - Exporters são aplicações intermediárias que exponibilizam métricas de sistemas, serviçous ou hardwares;
+  > - As métricas são expostas ao Prometheus, num formato que ele consegue entender e coletar.
+  > - Fluxo de Monitoramento:
+  >   - Exporters expõem as métricas de serviços / sistemas em um endpoint HTTP;
+  >   - Prometheus coleta / faz scraping desses endpoints periodicamente;
+  >   - As métricas são armazenadas internamente no Prometheus;
+  >   - Grafana se conecta ao Prometheus como Fonte de Dados, e cria painéis em cima disso.
+
+G1.8 - Data Sources | Fontes de Dados
+  > - Sistemas externos de onde o Grafana obtém os dados para visualização;
+  > - Ao invés do Grafana armazenar esses dados, ele atua como Interface: Consultando e Exibindo os Resultados;
+  > - É necessário informar a URL do serviço, o tipo de fonte, e credenciais (Se necessário);
+  > - Cada painel pode usar uma ou mais fontes de dados para exibição de informações.
+  > - Tipos mais comuns de Data Sources:
+  >   - Prometheus (Métricas);
+  >   - Grafana Mimir (Métricas em Larga Escala);
+  >   - Loki (Logs);
+  >   - Tempo (Traces / Rastreamento Distribuído).
+
 </div> 
 </details>
 
