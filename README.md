@@ -103,3 +103,15 @@ G1.8 - Data Sources | Fontes de Dados
 </details>
 
 ----
+
+<details>
+  <summary><b> 2. Intermediário</b></summary>
+<div align="Left">  
+<br>  
+
+
+
+</div> 
+</details>
+
+----
