@@ -109,7 +109,34 @@ G1.8 - Data Sources | Fontes de Dados
 <div align="Left">  
 <br>  
 
+  G2.1 - Scrape (Prometheus)
+  > - Processo onde o Prometheus puxa as métricas expostas por serviços (targets), via HTTP;
+  > - Os serviços precisam expor suas métricas em um endpoint HTTP, geralmente /metrics.
+  >   - O Prometheus possui um arquivo de configuração - prometheus.yml;
+  >   - Nesse arquivo, definimos os "targets" e o intervalo de scrape;
+  >   - Cada coleta é armazenada com um timestamp e labels, formando séries temporais.   
 
+  G2.2 - Armazenamento Local de Métricas e Retenção (Prometheus)
+  > - Prometheus armazena os dados coletados em Disco, usando o formato TSDB - Time Series Database;
+  > - Cada métrica é armazenada como uma série tempora, com valores associados a timestamps e labels.
+  > - Por padrão, o Prometheus mantém as métricas por 15 dias, mas é customizável;
+  >   - Como o armazenamento do Prometheus é local, a retenção de longo prazo não é indicada;
+  >   - Para isso, existem existem algumas opções para ambientes distribuídos e backends de longo prazo:
+  >     - Thanos;
+  >     - Cortex;
+  >     - VictoriaMetrics;
+  >     - Mimir.  
+
+ G2.3 - PromQL 
+  > - Prometheus Query Language é a linguagem de consulta do Prometheus;
+  > - Usada para:
+  >   - Buscar séries temporais;
+  >   - Agregar dados (sum, avg, max, etc.);
+  >   - Filtrar métricas por labels;
+  >   - Criar expressões derivadas.
+  > - O Grafana usa o PromQL para consultar dados do Prometheus;
+  >   - Quando é criado um painel no Grafana com o Prometheus como fonte de dados, você escreve consultas em PromQL nos painéis;
+  >   - Grafana não processa dados, ele envia apenas a consulta ao Prometheus e renderiza o resultado.     
 
 </div> 
 </details>
