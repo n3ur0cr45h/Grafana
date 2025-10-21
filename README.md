@@ -136,7 +136,54 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Criar expressões derivadas.
   > - O Grafana usa o PromQL para consultar dados do Prometheus;
   >   - Quando é criado um painel no Grafana com o Prometheus como fonte de dados, você escreve consultas em PromQL nos painéis;
-  >   - Grafana não processa dados, ele envia apenas a consulta ao Prometheus e renderiza o resultado.     
+  >   - Grafana não processa dados, ele envia apenas a consulta ao Prometheus e renderiza o resultado.
+
+ G2.4 - Alloy
+  > - Agente unificado de Observabilidade;
+  > - Coleta os dados de telemetria (logs, métricas e traces) - centralizando tudo em apenas 1 agente;
+  > - Simplifca a coleta, realiza transformação e encaminha os dados aos backends: Mimir, Loki e Tempo.
+  > - Principais Funções:
+  >   - Scrape de Métricas - como Prometheus;
+  >   - Colega de Logs - como Promtail;
+  >   - Coleta de Traces - como OTEL Collector;
+  >   - Aplica transformações e Roteamento de Dados;
+  >   - Envia os dados para Diferentes Destinos.
+  > - Usa linguagem YAML ou Flow (mais modular).
+
+ G2.5 - Mimir
+  > - Time-Series Database (TSDB), distrbuído e altamente escalável - comppatível com Prometheus.
+  > - Características: 
+  >   - Recebe métricas via remote_write;
+  >   - Armazena grandes volumes de dados com alta retenção;
+  >   - Permite consultas rápidas e em larga escala;
+  >   - Suporta múltiplos tenants (multiusuário).
+  > - Evolução do "Cortex".
+  >   
+  > - Foi projetado com uma arquitetura baseada em microsserviços;
+  > - Permite escalar horizontalmente cada parte da pipeline de ingestão e consulta;
+  > - Componentes escaláveis:
+  >   - Distributors: Recebem as métricas via remote_write;
+  >   - Ingesters: Processam e armazenam os dados;
+  >   - Querier / Query Frontend: Tratam as requisições PromQL;
+  >   - Store Gateway: Lida com acesso ao armazenamento de longo prazo (ex: S3, GCS);
+  >   - Compactor: Otimiza chunks e reduz redundância.
+  >     
+  > - O Mimir distribui o trabalho em vários nós (instâncias), que desempenham funções específicas;
+  > - Usa técnicas como "consistent hashing" para espalhar séries temporais entre vários ingesters;
+  > - Assim, mantém a disponibilidade e balanceamento de carga.
+  >   
+  > - Shards
+  >   - Cada série temporal é shardeada (dividida) com base em uma hash key derivada dos labels;
+  >   - Isso garante que diferente séries vão para diferentes ingesters (Evita gargalos e permite paralelismo de escrita / leitura);
+  >   - Querier também shardeia as queries, enviando partes da consulta para múltiplos nós ao mesmo tempo.
+  >
+  > - Chunks
+  >   - Métricas no Mimir são armazenadas em Chunks: pedaços compactos de séries temporais que agrupam valores e timestamps juntos;
+  >   - Exemplo: um chunk pode conter as amostras de uma métrica a cada 15s por 2 horas.
+  >   - O armazenamento deles pode ser:
+  >     - Temporariamente na memória dos ingesters;
+  >     - Persistidos no Object Storage: (ex: S3, GCS), para retenção de longo prazo.
+  >   - Chunking reduz o uso de disco e melhora o desempenho de leitura.                               
 
 </div> 
 </details>
