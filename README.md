@@ -183,7 +183,9 @@ G1.8 - Data Sources | Fontes de Dados
   >   - O armazenamento deles pode ser:
   >     - Temporariamente na memória dos ingesters;
   >     - Persistidos no Object Storage: (ex: S3, GCS), para retenção de longo prazo.
-  >   - Chunking reduz o uso de disco e melhora o desempenho de leitura.                               
+  >   - Chunking reduz o uso de disco e melhora o desempenho de leitura.
+
+ G2.6 - 
 
 </div> 
 </details>
