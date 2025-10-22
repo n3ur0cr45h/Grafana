@@ -215,7 +215,33 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Heatmaps: Distribuição de dados em uma grade de coler, com base na intensidade de uma métrica.
 
  G2.9 - Variáveis
-  > - 
+  > - As variáveis permitem tornar os painéis mais dinâmicos, interativos e também criar templates;
+  > - São parâmetros que podem ser usados em consultas para filtrar ou ajustar dados nos painéis;
+  > - Extremamente útil quando deseja criar um painel genérico, para ser utilizado em várias instâncias sem duplicar configurações.
+  > - As variáveis podem funcionar de 3 maneiras:
+  >   - Datasource (Fonte de Dados);
+  >   - Consultas;
+  >   - Interatividade.
+  > - Então, para um painel, nós escolhemos o data source, e qual query será usada para puxar os dados. 
+
+ G2.10 - Alertas e Notificações
+  > - Alertas baseados em métricas, são configurações para monitoramento em tempo real;
+  > - Definimos uma condição de alerta para monitorar métricas específicas de fontes de dados;
+  > - Assim, há o disparo de notificações quando essas condições são atendidas.
+  >   - Para alertas, é necessário definir um threshold (limiar), que será o valor de referência;
+  >   - Quando a métrica monitorada atinge ou ultrapassa esse valor, o alerta é acionado.
+  >   - Também é importante definir uma condição de alerta, que envolve comparação entre valores ou comportamento temporal;
+  >   - As condições podem ser valores estáticos ou valores dinâmicos - como média, máximo, mínimo, desvio, etc.
+  >   - Tipos de condições:
+  >     - Trigger (Disparo): Último Valor, Média de Intervalo ou Percentis.
+  >     - State (Estado): Ok, Alerta ou No Data.
+  > - O Grafana possui opção de enviar notificações por meio de canais externos - os mais comuns:
+  >   - E-mail;
+  >   - Slack;
+  >   - Webhook;
+  >   - Teams;
+  >   - SMS;
+  >   - Entre outros.      
 
 </div> 
 </details>
