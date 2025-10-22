@@ -185,7 +185,37 @@ G1.8 - Data Sources | Fontes de Dados
   >     - Persistidos no Object Storage: (ex: S3, GCS), para retenção de longo prazo.
   >   - Chunking reduz o uso de disco e melhora o desempenho de leitura.
 
- G2.6 - 
+ G2.6 - Loki | Logs Estruturados 
+  > - Loki é a solução de gerenciamento de logs do Grafana;
+  > - Se rtrata de um sistema de agregação de logs, escalável e otimizado;
+  > - Foi projetado para armazenar logs em forma de logs estruturados - facilita a busca e análise.
+  >   - Logs Estruturados são entradas de log que possuem formato específico e padronizado - como JSON;
+  >   - A estruturação contêm campos predefinidos, como testamps, níveis de log, IDs de correlação, mensagem, etc.
+  > - Após coletar e armazenar logs, o Grafana pode visualizá-los, com queries semelhantes a BDs - usando LogQL;
+  > - É possível criar dashboards no Grafana para exibir os logs;
+  > - Em relação a alertas, o Grafana permite configuração para disparo de notificações, em casos de logs específicos.
+
+ G2.7 - Tempo | Tracing Distribuído 
+  > - Serve para rastrear o fluxo de uma requisição em sistemas distribuídos;
+  > - Permite analisar a requisição em diferentes serviços e componentes da arquitetura;
+  > - Nisso, temos o mapeamento do caminho, para cada requisição, com detalhes de tempo, falhas, e interação;
+  >   - Cada requisição é tratada como "trace", e é subdividido em "spans", representando cada parte por onde passou;
+  >   - Os spans possuem informações como tempo de execução, status, e outros detalhes.    
+
+ G2.8 - Painéis 
+  > - Unidades de visualização de dados;
+  > - Cada painel mostra um gráfico, tabela, status de métrica, ou outra forma de visualização.
+  > - Tipos de Painéis:
+  >   - Gráficos de Linhas (Time Series): Ideal para visualização de métricas ao longo do tempo;
+  >   - Gráficos de Barras: Para comparações diretas entre diferentes métricas ou instâncias;
+  >   - Gráficos de Área: Para mostrar a magnitude de uma métrica ao longo do tempo;
+  >   - Tabelas: Dados em formato tabular;
+  >   - Indicadores (Single Stat / Stat): Valor numérico grande, como taxa de erro, latência média, etc;
+  >   - Discos (Gauge): Valores de métricas em intervalos de referência;
+  >   - Heatmaps: Distribuição de dados em uma grade de coler, com base na intensidade de uma métrica.
+
+ G2.9 - Variáveis
+  > - 
 
 </div> 
 </details>
