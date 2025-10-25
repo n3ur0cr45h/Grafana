@@ -247,3 +247,59 @@ G1.8 - Data Sources | Fontes de Dados
 </details>
 
 ----
+
+<details>
+  <summary><b> 3. Avançado</b></summary>
+<div align="Left">  
+<br>  
+
+G3.1 - Fluxo de Dados 
+  
+  > | Processo | Ferramenta  | Função                                           |
+  > |----------|-------------|--------------------------------------------------|
+  > | 1        | Alloy       | Coleta de Logs, Métricas e Traces                |
+  > | 2        | Mimir, Loki e Tempo | Armazena o respectivo dado               |
+  > | 3        | Grafa       | Consulta usando PromQL, LogQL e TraceQL          |
+
+G3.2 - Sistemas Escaláveis | Sistemas Distribuídos
+  > - Sistemas Escaláveis: conseguem aumentar a sua própria capacidade conforme demanada;
+  > - Sistemas Distribuídos: são compostos por múltiplos nós, para execução de tarefas, como se fosse apenas um.
+
+G3.3 - Modelos de Multi-Cluster (Observabilidade Federada)
+  > - Coleta Centralizada: Vários Clusters enviam métricas | Logs| Traces para um Mimir | Loki | Tempo central;
+  > - Agregação Federada: Cada Cluster roda sua própria instância local do Mimir | Loki | Tempo - Um Grafana global é usado para todos.
+  > - Benefícios:
+  >   - Resiliência Regional;
+  >   - Escalabilidade Global;
+  >   - Isolamento de ruído e limites por Tenant.       
+
+G3.4 - Conceitos Gerais de Performance | Otimização
+  > - Em sistemas de observabilidade, existem três pilares para performance e otimização:
+  >   - Latência: Tempo de resposta das consultas;
+  >   - Custo | Armazenamento: Volume de dados retidos e custo de operação;
+  >   - Escalabilidade: Capacidade de crescer horizontalmente conforme volume de dados.
+  > - A performance depende dos hábitos de coleta, retenção e modelagem de dados.
+  >
+  > - Boas Práticas de Retenção e Armazenamento
+  >   - A retenção deve equilibrar custo x necessidade de análise histórica;
+  >     - Métricas: 15 - 90 dias;
+  >     - Logs: 7 - 30 Dias;
+  >     - Traces: 7 - 14 Dias.
+  > - Usar Object Storage (S3, GCS, Azure Blob) para dados frios;
+  > - Compactar e deduplicar blocos periodicamente;
+  > - Configurar retenções diferentes por tenant, namespace ou tipo de métrica.         
+
+G3.5 - Redução de Cardinalidade de Métricas
+  > - Cadinalidade é o número de combinações únicas de labels (chaves + valores), em séries temporais;
+  > - Alta cardinalidade = explosão de memória, CPU e Armazenamento.
+  > - Práticas para redução de Cardinalidade:
+  >   - Evitar Labels Dinâmicos: Não usar IDs únicos, timestamps ou hashes como labels;
+  >   - Usar Labels Fixos e Agregadores: Agrupar por Recursos Estáveis (Serviço, Região, Pod);
+  >   - Agrupar Métricas: Preferência de uma métrica com label "type", ao invés de várias diferentes;
+  >   - Usar Histogram e Summary com Moderação: Criam séries internas (Buckets) - evitar o excesso de buckets;
+  >   - Downsampling e Rollups: Agregar métricas antigas para reduzir volume.  
+
+</div> 
+</details>
+
+----
