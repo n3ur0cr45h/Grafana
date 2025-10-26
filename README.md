@@ -324,7 +324,14 @@ G3.6 - Medição de Saúde das Aplicações e Clusters
   >     - Erros de Transação.
 
 G3.7 - Governança 
-  > - 
+  > - O foco é em ter um grafana bem estruturado e de fácil acesso;
+  > - Organizar as pastas por : Ambiente -> Equipe -> Sistema;
+  > - Ter um padrão visual e de nomeação:
+  >   - Layout;
+  >   - Cores;
+  >   - Títulos;
+  >   - Unidades e Escalas;
+  >   - Painéias Reutilizáveis (Templates).     
 
 </div> 
 </details>
