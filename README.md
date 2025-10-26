@@ -287,7 +287,17 @@ G3.4 - Conceitos Gerais de Performance | Otimização
   >     - Traces: 7 - 14 Dias.
   > - Usar Object Storage (S3, GCS, Azure Blob) para dados frios;
   > - Compactar e deduplicar blocos periodicamente;
-  > - Configurar retenções diferentes por tenant, namespace ou tipo de métrica.         
+  > - Configurar retenções diferentes por tenant, namespace ou tipo de métrica.
+  >
+  > - Queries Complexas
+  >   - O Grafana não executa as queries, mas envia as consultas às fontes de dados - depois as renderiza;
+  >   - O impacto maior é no backend, mas no Grafana é percebido.
+  >   - Impactos:
+  >     - Painéis podem demorar pra carregar, ou até expirar;
+  >     - Carga no Servidor de Dados (Backend) - CPU e RAM;
+  >     - Frontend (Grafana), pode travar ou consumir muita memória no navegador;
+  >     - Atraso de Atualização em Tempo Real;
+  >     - Alertas configurados com expressões muito pesadas podem dar timeout. 
 
 G3.5 - Redução de Cardinalidade de Métricas
   > - Cadinalidade é o número de combinações únicas de labels (chaves + valores), em séries temporais;
@@ -298,6 +308,23 @@ G3.5 - Redução de Cardinalidade de Métricas
   >   - Agrupar Métricas: Preferência de uma métrica com label "type", ao invés de várias diferentes;
   >   - Usar Histogram e Summary com Moderação: Criam séries internas (Buckets) - evitar o excesso de buckets;
   >   - Downsampling e Rollups: Agregar métricas antigas para reduzir volume.  
+
+G3.6 - Medição de Saúde das Aplicações e Clusters 
+  > - "Saúde" de um sistema, é a capacidade de atendimento dos usuários de forma eficiente e confiável;
+  > - Pode ser medida através de métricas técnicas de negócio.
+  >   - Técnicas: 
+  >     - Disponibilidade;
+  >     - Desempenho;
+  >     - Capacidade;
+  >     - Erros;
+  >     - Saturação.
+  >   - Negócio:
+  >     - Conversão;
+  >     - Tempo de Resposta;
+  >     - Erros de Transação.
+
+G3.7 - Governança 
+  > - 
 
 </div> 
 </details>
