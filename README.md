@@ -15,7 +15,7 @@
 ----
   
 <details>
-  <summary><b> 1. Fundamentos</b></summary>
+  <summary><b> 1. Tópicos</b></summary>
 <div align="Left">  
 <br>  
     
@@ -99,24 +99,14 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Loki (Logs);
   >   - Tempo (Traces / Rastreamento Distribuído).
 
-</div> 
-</details>
-
-----
-
-<details>
-  <summary><b> 2. Intermediário</b></summary>
-<div align="Left">  
-<br>  
-
-  G2.1 - Scrape (Prometheus)
+  G1.9 - Scrape (Prometheus)
   > - Processo onde o Prometheus puxa as métricas expostas por serviços (targets), via HTTP;
   > - Os serviços precisam expor suas métricas em um endpoint HTTP, geralmente /metrics.
   >   - O Prometheus possui um arquivo de configuração - prometheus.yml;
   >   - Nesse arquivo, definimos os "targets" e o intervalo de scrape;
   >   - Cada coleta é armazenada com um timestamp e labels, formando séries temporais.   
 
-  G2.2 - Armazenamento Local de Métricas e Retenção (Prometheus)
+  G1.10 - Armazenamento Local de Métricas e Retenção (Prometheus)
   > - Prometheus armazena os dados coletados em Disco, usando o formato TSDB - Time Series Database;
   > - Cada métrica é armazenada como uma série tempora, com valores associados a timestamps e labels.
   > - Por padrão, o Prometheus mantém as métricas por 15 dias, mas é customizável;
@@ -127,7 +117,7 @@ G1.8 - Data Sources | Fontes de Dados
   >     - VictoriaMetrics;
   >     - Mimir.  
 
- G2.3 - PromQL 
+ G1.11 - PromQL 
   > - Prometheus Query Language é a linguagem de consulta do Prometheus;
   > - Usada para:
   >   - Buscar séries temporais;
@@ -138,7 +128,7 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Quando é criado um painel no Grafana com o Prometheus como fonte de dados, você escreve consultas em PromQL nos painéis;
   >   - Grafana não processa dados, ele envia apenas a consulta ao Prometheus e renderiza o resultado.
 
- G2.4 - Alloy
+ G1.12 - Alloy
   > - Agente unificado de Observabilidade;
   > - Coleta os dados de telemetria (logs, métricas e traces) - centralizando tudo em apenas 1 agente;
   > - Simplifca a coleta, realiza transformação e encaminha os dados aos backends: Mimir, Loki e Tempo.
@@ -150,7 +140,7 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Envia os dados para Diferentes Destinos.
   > - Usa linguagem YAML ou Flow (mais modular).
 
- G2.5 - Mimir
+ G1.13 - Mimir
   > - Time-Series Database (TSDB), distrbuído e altamente escalável - comppatível com Prometheus.
   > - Características: 
   >   - Recebe métricas via remote_write;
@@ -185,7 +175,7 @@ G1.8 - Data Sources | Fontes de Dados
   >     - Persistidos no Object Storage: (ex: S3, GCS), para retenção de longo prazo.
   >   - Chunking reduz o uso de disco e melhora o desempenho de leitura.
 
- G2.6 - Loki | Logs Estruturados 
+ G1.14 - Loki | Logs Estruturados 
   > - Loki é a solução de gerenciamento de logs do Grafana;
   > - Se rtrata de um sistema de agregação de logs, escalável e otimizado;
   > - Foi projetado para armazenar logs em forma de logs estruturados - facilita a busca e análise.
@@ -195,14 +185,14 @@ G1.8 - Data Sources | Fontes de Dados
   > - É possível criar dashboards no Grafana para exibir os logs;
   > - Em relação a alertas, o Grafana permite configuração para disparo de notificações, em casos de logs específicos.
 
- G2.7 - Tempo | Tracing Distribuído 
+ G1.15 - Tempo | Tracing Distribuído 
   > - Serve para rastrear o fluxo de uma requisição em sistemas distribuídos;
   > - Permite analisar a requisição em diferentes serviços e componentes da arquitetura;
   > - Nisso, temos o mapeamento do caminho, para cada requisição, com detalhes de tempo, falhas, e interação;
   >   - Cada requisição é tratada como "trace", e é subdividido em "spans", representando cada parte por onde passou;
   >   - Os spans possuem informações como tempo de execução, status, e outros detalhes.    
 
- G2.8 - Painéis 
+ G1.16 - Painéis 
   > - Unidades de visualização de dados;
   > - Cada painel mostra um gráfico, tabela, status de métrica, ou outra forma de visualização.
   > - Tipos de Painéis:
@@ -214,7 +204,7 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Discos (Gauge): Valores de métricas em intervalos de referência;
   >   - Heatmaps: Distribuição de dados em uma grade de coler, com base na intensidade de uma métrica.
 
- G2.9 - Variáveis
+ G1.17 - Variáveis
   > - As variáveis permitem tornar os painéis mais dinâmicos, interativos e também criar templates;
   > - São parâmetros que podem ser usados em consultas para filtrar ou ajustar dados nos painéis;
   > - Extremamente útil quando deseja criar um painel genérico, para ser utilizado em várias instâncias sem duplicar configurações.
@@ -224,7 +214,7 @@ G1.8 - Data Sources | Fontes de Dados
   >   - Interatividade.
   > - Então, para um painel, nós escolhemos o data source, e qual query será usada para puxar os dados. 
 
- G2.10 - Alertas e Notificações
+ G1.18 - Alertas e Notificações
   > - Alertas baseados em métricas, são configurações para monitoramento em tempo real;
   > - Definimos uma condição de alerta para monitorar métricas específicas de fontes de dados;
   > - Assim, há o disparo de notificações quando essas condições são atendidas.
@@ -243,17 +233,7 @@ G1.8 - Data Sources | Fontes de Dados
   >   - SMS;
   >   - Entre outros.      
 
-</div> 
-</details>
-
-----
-
-<details>
-  <summary><b> 3. Avançado</b></summary>
-<div align="Left">  
-<br>  
-
-G3.1 - Fluxo de Dados 
+G1.19 - Fluxo de Dados 
   
   > | Processo | Ferramenta  | Função                                           |
   > |----------|-------------|--------------------------------------------------|
@@ -261,11 +241,11 @@ G3.1 - Fluxo de Dados
   > | 2        | Mimir, Loki e Tempo | Armazena o respectivo dado               |
   > | 3        | Grafa       | Consulta usando PromQL, LogQL e TraceQL          |
 
-G3.2 - Sistemas Escaláveis | Sistemas Distribuídos
+G1.20 - Sistemas Escaláveis | Sistemas Distribuídos
   > - Sistemas Escaláveis: conseguem aumentar a sua própria capacidade conforme demanada;
   > - Sistemas Distribuídos: são compostos por múltiplos nós, para execução de tarefas, como se fosse apenas um.
 
-G3.3 - Modelos de Multi-Cluster (Observabilidade Federada)
+G1.21 - Modelos de Multi-Cluster (Observabilidade Federada)
   > - Coleta Centralizada: Vários Clusters enviam métricas | Logs| Traces para um Mimir | Loki | Tempo central;
   > - Agregação Federada: Cada Cluster roda sua própria instância local do Mimir | Loki | Tempo - Um Grafana global é usado para todos.
   > - Benefícios:
@@ -273,7 +253,7 @@ G3.3 - Modelos de Multi-Cluster (Observabilidade Federada)
   >   - Escalabilidade Global;
   >   - Isolamento de ruído e limites por Tenant.       
 
-G3.4 - Conceitos Gerais de Performance | Otimização
+G1.22 - Conceitos Gerais de Performance | Otimização
   > - Em sistemas de observabilidade, existem três pilares para performance e otimização:
   >   - Latência: Tempo de resposta das consultas;
   >   - Custo | Armazenamento: Volume de dados retidos e custo de operação;
@@ -299,7 +279,7 @@ G3.4 - Conceitos Gerais de Performance | Otimização
   >     - Atraso de Atualização em Tempo Real;
   >     - Alertas configurados com expressões muito pesadas podem dar timeout. 
 
-G3.5 - Redução de Cardinalidade de Métricas
+G1.23 - Redução de Cardinalidade de Métricas
   > - Cadinalidade é o número de combinações únicas de labels (chaves + valores), em séries temporais;
   > - Alta cardinalidade = explosão de memória, CPU e Armazenamento.
   > - Práticas para redução de Cardinalidade:
@@ -309,7 +289,7 @@ G3.5 - Redução de Cardinalidade de Métricas
   >   - Usar Histogram e Summary com Moderação: Criam séries internas (Buckets) - evitar o excesso de buckets;
   >   - Downsampling e Rollups: Agregar métricas antigas para reduzir volume.  
 
-G3.6 - Medição de Saúde das Aplicações e Clusters 
+G1.24 - Medição de Saúde das Aplicações e Clusters 
   > - "Saúde" de um sistema, é a capacidade de atendimento dos usuários de forma eficiente e confiável;
   > - Pode ser medida através de métricas técnicas de negócio.
   >   - Técnicas: 
@@ -323,7 +303,7 @@ G3.6 - Medição de Saúde das Aplicações e Clusters
   >     - Tempo de Resposta;
   >     - Erros de Transação.
 
-G3.7 - Governança 
+G1.25 - Governança 
   > - O foco é em ter um grafana bem estruturado e de fácil acesso;
   > - Organizar as pastas por : Ambiente -> Equipe -> Sistema;
   > - Ter um padrão visual e de nomeação:
